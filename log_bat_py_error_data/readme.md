@@ -1,4 +1,5 @@
 # Readme
+- change line[5] in sub.bat
 - Use python 3.6+ (support f-string)
 - Change path in index.py First
 - Don't change folder name
