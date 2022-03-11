@@ -19,7 +19,7 @@ def to_csv(folder_name):
 		f.writelines(f'file,rows_copied,total,error\n')
 		for file in log_files_in_folder:
 			with open(file,'r') as r:
-				error_msg = ""
+				rows_copied = total = error_msg = ""
 				read_log = r.readlines()
 				for line in read_log[-8:]:
 					line = line.replace("\n","")
