@@ -2,14 +2,20 @@ import os
 import re
 from time import time, sleep
 import pandas as pd
+import numpy as np
 
 def dataframe(folder_name):
 	df1 = pd.read_csv(f"{folder_name}_import.csv",sep=",")
 	df2 = pd.read_csv(f"{folder_name}_export.csv",sep=",")
 	result = pd.concat([df1, df2.reindex(df1.index)], axis=1)
 	print(folder_name)
-	print(result)
-	print(result.columns)
+	if (result.iloc[:, 0].equals(result.iloc[:, 4])):
+		result['compare_rowscopied'] = np.where(result.iloc[:, 1]==result.iloc[:, 5],"Eq","No")
+		result['compare_total'] = np.where(result.iloc[:, 2]==result.iloc[:, 6],"Eq","No")
+		print(result.drop(result.columns[[4]], axis=1))
+		print(result.columns)
+	else:
+		print(f'Filename in {folder_name}_import & {folder_name}_export  differents!')
 
 def main():
 	folder_list = []
@@ -17,10 +23,9 @@ def main():
 		if it.is_dir():
 			folder_list.append(re.sub('_(im|ex)port','',it.path[2:]))
 	folder_list = list(set(folder_list))
-	# print(folder_list)
 	for each in folder_list:
 		dataframe(each)
-		sleep(1)
+		# sleep(1)
 
 if __name__ == '__main__':
 	print(f'Start compare_df.py')
