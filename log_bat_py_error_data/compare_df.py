@@ -12,8 +12,13 @@ def dataframe(folder_name):
 	if (result.iloc[:, 0].equals(result.iloc[:, 4])):
 		result['compare_rowscopied'] = np.where(result.iloc[:, 1]==result.iloc[:, 5],"Eq","No")
 		result['compare_total'] = np.where(result.iloc[:, 2]==result.iloc[:, 6],"Eq","No")
-		print(result.drop(result.columns[[4]], axis=1))
+		result.pop('file')
+		result.insert(0, "Filename", df1.iloc[:, 0])
+		print(result)
 		print(result.columns)
+		print(result['compare_rowscopied'].value_counts())
+		print(result['compare_total'].value_counts())
+		result.to_csv(f"{folder_name}.csv", index=False)
 	else:
 		print(f'Filename in {folder_name}_import & {folder_name}_export  differents!')
 
