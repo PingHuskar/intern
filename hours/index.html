@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intern Note</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Chadin Chaipornpisuth">
+        <meta name="author" content="Chadin Chaipornpisuth">
+		<!-- image -->
+		<meta property="og:image"  content="../metro.png">
+		<meta name="twitter:image" content="../metro.png">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <!-- <link rel="shortcut icon" href="https://lh3.googleusercontent.com/a-/AOh14GiHSIowR2-D41APQpWU-IZYOu4-qClYx3d_agjgSQ=s600-k-no-rp-mo"> -->
+        <link rel="shortcut icon" href="../metro.png">
+	<!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	<!-- <link rel="stylesheet" href="../css/font-awesome.min.css"> -->
+	<style type="text/css">
+		body {
+			background-color: rgb(43, 43, 43);
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			color: white;
+			font-size: 20px;
+		}
+		a {
+			font-size: 36px;
+			font-weight: 300;
+			font-family: "open sans",arial,helvetica,sans-serif;
+			text-decoration: inherit;
+			color: #0039A4;
+		}
+		a:visited {
+			text-decoration: inherit;
+		}
+		abbr {
+			text-decoration: inherit;
+		}
+		.mon {
+			color: yellow;
+		}
+		.tue {
+			color: rgb(255, 0, 191);
+		}
+		.wed {
+			color: rgb(0, 255, 55);
+		}
+		.thu {
+			color: rgb(255, 136, 0);
+		}
+		.fri {
+			color: rgb(0, 217, 255);
+		}
+		/* body pre {
+			color: wheat;
+			font-size: 30px;
+		} */
+        table {
+            width: 100%;
+            /* overflow-x:auto; */
+        }
+        tr:nth-child(even) {
+  background-color: #222;
+}
+	</style>
+</head>
+<body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<!-- <table>
+    <tr>
+        <th>Date</th>
+        <th>start</th>
+        <th>stop</th>
+    </tr> -->
+<!-- </table> -->
+<div class="message"></div>
+
+<script>
+	const req = new XMLHttpRequest();
+	req.open("GET",'../note/data.json', true);
+	req.send();
+	console.log(req.responseText)
+	req.onload=function(){
+	  let json = JSON.parse(req.responseText);
+	  let html = "<table><tr><th>Date</th><th>start</th><th>stop</th></tr>";
+	//   json = json.reverse();
+	json = json.filter(function(val) {
+     return (val.abbr != false);
+      });
+
+
+	   json.forEach(function(val) {
+        if (val.type === "work") {
+			html += "<tr>"
+		html += "<td>" + val.date + "</td>"
+		html += "<td>" + val.start + "</td>"
+		html += "<td>" + val.stop + "</td>"
+		html += "</tr>"
+		}
+        else {
+            html += "<tr>"
+            html += "<td>" + val.date + "</td>"
+            html += "<td>0</td>"
+            html += "<td>0</td>"
+            html += "</tr>"
+        }
+		
+	   });
+       html += "</table>"
+	   document.getElementsByClassName('message')[0].innerHTML = html;
+	}
+
+</script>
+
+<a href="../">
+	<img src="https://media.publit.io/file/Back.png" title="Back"
+		 alt="Back Icon"
+	  style="position:fixed;right:20px;bottom:15px;z-index:9998;
+		max-height: 100px;
+		max-width: 100px;">
+
+</body>
+</html>

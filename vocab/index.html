@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intern Vocab</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Chadin Chaipornpisuth">
+        <meta name="author" content="Chadin Chaipornpisuth">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <link rel="shortcut icon" href="https://lh3.googleusercontent.com/a-/AOh14GiHSIowR2-D41APQpWU-IZYOu4-qClYx3d_agjgSQ=s600-k-no-rp-mo">
+	<!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	<!-- <link rel="stylesheet" href="../css/font-awesome.min.css"> -->
+	<style type="text/css">
+		body {
+			background-color: black;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			color: white;
+			font-size: 20px;
+		}
+		a {
+			font-size: 36px;
+			font-weight: 300;
+			font-family: "open sans",arial,helvetica,sans-serif;
+			text-decoration: inherit;
+			color: #0039A4;
+		}
+		a:visited {
+			text-decoration: inherit;
+		}
+		abbr {
+			text-decoration: inherit;
+		}
+		main {
+			margin-bottom: 200px;
+		}
+	</style>
+</head>
+<body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+	const req = new XMLHttpRequest();
+	req.open("GET",'data.json', true);
+	req.send();
+	console.log(req.responseText)
+	req.onload=function(){
+	  let json = JSON.parse(req.responseText);
+	  let html = "";
+	//   json = json.reverse();
+	json = json.filter(function(val) {
+     return (val.abbr != false);
+      });
+
+
+	   json.forEach(function(val) {
+		// html += "<a href=\"" + val.link + "\" target=\"_blank\">"+ "<abbr title=" + val.word + ">" + val.abbr + "</abbr></a> "
+		html += "<li><a href=\"" + val.link + "\" target=\"_blank\">"+ "<abbr title=" + val.word.replaceAll("_", "") + ">" + val.abbr + "</abbr></a>"
+		html += "<div class=\"definition\">" + val.definition +"</div>"
+		if (val.img != "") {
+		html += "<img src=\"" + val.img +"\">"
+		}
+		html += "</li>\n"
+	   });
+	   document.getElementsByClassName('message')[0].innerHTML = html;
+	}
+
+</script>
+<main>
+<ol>
+  <div class="message"></div>
+</ol>
+<a href="../">
+	<img src="https://media.publit.io/file/Back.png" title="Back"
+		 alt="Back Icon"
+	  style="position:fixed;left:20px;bottom:15px;z-index:9998;
+		max-height: 100px;
+		max-width: 100px;"></a>
+</main>
+</body>
+</html>

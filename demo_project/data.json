@@ -1,0 +1,14 @@
+[
+    {"id":"1","title":"Open, read and create emails","remark":"","submit":true},
+    {"id":"2","title":"Log in to enterprise apps or web appl.","remark":"","submit":false},
+    {"id":"3","title":"Move files and folders","remark":"","submit":true},
+    {"id":"4","title":"Copy/Paste","remark":"","submit":true},
+    {"id":"5","title":"Fill in forms","remark":"","submit":true},
+    {"id":"6","title":"Read/write to databases","remark":"READ+INSERT+UPDATE+DELETE","submit":true},
+    {"id":"7","title":"Put data from the Internet","remark":"","submit":false},
+    {"id":"8","title":"Obtain human input via emails / workflow","remark":"","submit":false},
+    {"id":"9","title":"Make calculations","remark":"","submit":true},
+    {"id":"10","title":"Extract data from documents","remark":"แปลงหน้า pdf เป็นรูปแล้วทำ <abbr title=\"Optical Character Recognition\">OCR</abbr> บันทึกลง .txt","submit":true},
+    {"id":"11","title":"Collect statistics","remark":"","submit":false},
+    {"id":"12","title":"Follow decision rules","remark":"","submit":true}
+]

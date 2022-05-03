@@ -1,0 +1,5 @@
+Starting copy...
+1000 rows successfully bulk-copied to host-file.
+
+1918 rows copied.
+Clock Time (ms.): total = 15  Avg = 0 (127866.67 rows per sec.)
