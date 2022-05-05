@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<!-- <link rel="stylesheet" href="dist/theme/solarized.css"> -->
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+		<style type="text/css">
+			.make-it-pop {
+  filter: drop-shadow(0 0 10px purple);
+}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<div class="reveal">
+				  <div class="slides">
+				    <section>
+					<a href="https://www.interaction-design.org/literature/article/minimum-viable-product-mvp-and-design-balancing-risk-to-gain-reward">
+						<img src="https://public-images.interaction-design.org/literature/articles/heros/56aa38525ec09.jpg?tr=w-1024" alt="article logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>BRIEF - Minimum Viable Product (MVP) and Design - Balancing Risk to Gain Reward</h3>
+					<p>
+						<small>Brief by <a href="https://chadinchaipornpisuth.web.app/">Chadin Chaipornpisuth</a></small>
+					</p>
+				</section>
+				<section>
+					<h2>Table of Content</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2><abbr title="Minimum Viable Product">MVP</abbr> คือ ?</h2>
+						<img src="https://public-media.interaction-design.org/images/uploads/9f7f5b30ed9905117b65572ab6949a9f.png" alt="mvp" style="background: transparent;">
+						<p>Author/Copyright holder: Henrik Kniberg. Copyright terms and licence: All rights reserved</p>
+					</section>
+					<section>
+						<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations" style="width:100%;">
+							เครื่องมือกลยุทธ์ทางธุรกิจที่มีเป้าหมายเพื่อ ‘ลดความเสี่ยง’ ที่อาจเกิดขึ้นจากการผลิตสินค้าหรือบริการแล้วดันไม่เป็นที่ต้องการของตลาด โดยสร้าง “ผลิตภัณฑ์ตั้งต้น” หรือ “บริการตัวอย่าง” ที่เรียกกันภาษาสตาร์ทอัพว่า MVP ออกไปทดลองตลาดก่อน แล้วนำผลตอบรับมาวิเคราะห์ว่าควรเพิ่ม/ลดฟีเจอร์อะไร หรือควรปรับหน้าตาผลิตภัณฑ์หรือบริการตั้งต้นใหม่หรือไม่ อย่างไร
+						</blockquote>
+					</section>
+				</section>
+
+				
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				autoPlayMedia: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			Reveal.on( 'make-it-pop', () => {
+			  console.log('✨');
+			} );
+			Reveal.configure({
+  keyboard: {
+    27: () => { console.log('esc') }, // do something custom when ESC is pressed
+    32: 'next', // go to the next slide when the ENTER key is pressed
+    13: 'next' // go to the next slide when the SPACEBAR key is pressed
+  }
+});
+		</script>
+	</body>
+</html>
